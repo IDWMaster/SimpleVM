@@ -1,0 +1,6 @@
+enable_language(ASM-ATT)
+add_executable(SimpleVM main.cpp boot.s)
+set (EXTRA_LIBS ${EXTRA_LIBS})
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -I. -std=c++11 -g")
+include_directories(${EXTRA_HEADERS} "${PROJECT_BINARY_DIR}" ".")
+target_link_libraries(SimpleVM pthread dl rt ${EXTRA_LIBS})
